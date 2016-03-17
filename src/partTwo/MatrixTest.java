@@ -3,19 +3,19 @@ package partTwo;
 public class MatrixTest {
 
 	public static void main(String[] args) {
-		MatrixClass matrix1 = new MatrixClass(); //Основная матрица без параметро 3x3
-		MatrixClass matrix2 = new MatrixClass(3, 3); //Дополнительная матрица размер передаем в скобках
+		MatrixClass matrix1 = new MatrixClass();
+		MatrixClass matrix2 = new MatrixClass(3, 3);
 		MatrixClass summ;
 		MatrixClass diff; 
 		MatrixClass multNum;
-		int matrixMultiplier = 6; //множитель матрицы (когда умножаем на число)
+		int matrixMultiplier = 6; //РјРЅРѕР¶РёС‚РµР»СЊ РјР°С‚СЂРёС†С‹ (РєРѕРіРґР° СѓРјРЅРѕР¶Р°РµРј РЅР° С‡РёСЃР»Рѕ)
 		
-		System.out.println("Вертикальный размер умолчательной матрицы: " + matrix1.getVerticalSize());
-		System.out.println("Горизонтальный размер умолчательной матрицы: " + matrix1.getHorizontalSize());
+		System.out.println("Р’РµСЂС‚РёРєР°Р»СЊРЅС‹Р№ СЂР°Р·РјРµСЂ СѓРјРѕР»С‡Р°С‚РµР»СЊРЅРѕР№ РјР°С‚СЂРёС†С‹: " + matrix1.getVerticalSize());
+		System.out.println("Р“РѕСЂРёР·РѕРЅС‚Р°Р»СЊРЅС‹Р№ СЂР°Р·РјРµСЂ СѓРјРѕР»С‡Р°С‚РµР»СЊРЅРѕР№ РјР°С‚СЂРёС†С‹: " + matrix1.getHorizontalSize());
 		matrix1.printMatrix(matrix1);
 
-		System.out.println("Вертикальный размер вспомогательной матрицы: " + matrix2.getVerticalSize());
-		System.out.println("Горизонтальный размер вспомогательной матрицы: " + matrix2.getHorizontalSize());
+		System.out.println("Р’РµСЂС‚РёРєР°Р»СЊРЅС‹Р№ СЂР°Р·РјРµСЂ РІСЃРїРѕРјРѕРіР°С‚РµР»СЊРЅРѕР№ РјР°С‚СЂРёС†С‹: " + matrix2.getVerticalSize());
+		System.out.println("Р“РѕСЂРёР·РѕРЅС‚Р°Р»СЊРЅС‹Р№ СЂР°Р·РјРµСЂ РІСЃРїРѕРјРѕРіР°С‚РµР»СЊРЅРѕР№ РјР°С‚СЂРёС†С‹: " + matrix2.getHorizontalSize());
 		matrix2.printMatrix(matrix2);
 
 		
@@ -23,17 +23,16 @@ public class MatrixTest {
 		diff = matrix1.diffMatrix(matrix2);
 		
 		if (summ != null && diff != null) {
-			System.out.println("Сумма матриц равна: ");
+			System.out.println("РЎСѓРјРјР° РјР°С‚СЂРёС† СЂР°РІРЅР°: ");
 			matrix2.printMatrix(summ);
-			System.out.println("Разность матриц равна: ");
+			System.out.println("Р Р°Р·РЅРѕСЃС‚СЊ РјР°С‚СЂРёС† СЂР°РІРЅР°: ");
 			matrix2.printMatrix(diff);
 		} else {
-			System.out.println("Размеры матриц не совпадают. Сложение и разность невозможны");
+			System.out.println("Р Р°Р·РјРµСЂС‹ РјР°С‚СЂРёС† РЅРµ СЃРѕРІРїР°РґР°СЋС‚. РЎР»РѕР¶РµРЅРёРµ Рё СЂР°Р·РЅРѕСЃС‚СЊ РЅРµРІРѕР·РјРѕР¶РЅС‹");
 		}
 		
 		multNum = matrix1.matrixMultNumber(matrix1, matrixMultiplier);
-		System.out.println("Умножение матрицы на число: ");
+		System.out.println("РЈРјРЅРѕР¶РµРЅРёРµ РјР°С‚СЂРёС†С‹ РЅР° С‡РёСЃР»Рѕ: ");
 		matrix1.printMatrix(multNum);
 	}
-
 }

@@ -20,8 +20,8 @@ public class MatrixClass {
 		matrixArr = fillingMatrix(n, m);
 	}
 
-	// Реализация метода для заполнения массива случайными числами
-	// возвращаем массив: int [][].
+	// Р РµР°Р»РёР·Р°С†РёСЏ РјРµС‚РѕРґР° РґР»СЏ Р·Р°РїРѕР»РЅРµРЅРёСЏ РјР°СЃСЃРёРІР° СЃР»СѓС‡Р°Р№РЅС‹РјРё С‡РёСЃР»Р°РјРё
+	// РІРѕР·РІСЂР°С‰Р°РµРј РјР°СЃСЃРёРІ: int [][].
 
 	public int[][] fillingMatrix(int n, int m) {
 		int[][] tmpMatrix = new int[n][m];
@@ -33,7 +33,7 @@ public class MatrixClass {
 		return tmpMatrix;
 	}
 
-	// Метод вывода на экран содержимого матрицы
+	// РњРµС‚РѕРґ РІС‹РІРѕРґР° РЅР° СЌРєСЂР°РЅ СЃРѕРґРµСЂР¶РёРјРѕРіРѕ РјР°С‚СЂРёС†С‹
 	public void printMatrix(MatrixClass tmpMatrix) {
 		System.out.println("==================");
 		for (int i = 0; i < tmpMatrix.matrixArr.length; i++) {
@@ -45,17 +45,17 @@ public class MatrixClass {
 		}
 	}
 
-	// сравнение двух матриц. На вход метода отправляем объект.
+	// СЃСЂР°РІРЅРµРЅРёРµ РґРІСѓС… РјР°С‚СЂРёС†. РќР° РІС…РѕРґ РјРµС‚РѕРґР° РѕС‚РїСЂР°РІР»СЏРµРј РѕР±СЉРµРєС‚.
 	public int compare(MatrixClass tmpMatrix) {
 		if (this.matrixArr.length == tmpMatrix.matrixArr.length
 				&& this.matrixArr [0].length == tmpMatrix.matrixArr [0].length) {
-			return 1;// Если матрицы равны возвращаем 1
+			return 1;// Р•СЃР»Рё РјР°С‚СЂРёС†С‹ СЂР°РІРЅС‹ РІРѕР·РІСЂР°С‰Р°РµРј 1
 			
 		} else {
-			return 0;// Если не равны - возвращаем 0;
+			return 0;// Р•СЃР»Рё РЅРµ СЂР°РІРЅС‹ - РІРѕР·РІСЂР°С‰Р°РµРј 0;
 		}
 	}
-	//Сумма матриц. Возможно когда размеры матриц равны
+	//РЎСѓРјРјР° РјР°С‚СЂРёС†. Р’РѕР·РјРѕР¶РЅРѕ РєРѕРіРґР° СЂР°Р·РјРµСЂС‹ РјР°С‚СЂРёС† СЂР°РІРЅС‹
 	public MatrixClass sumMatrix(MatrixClass matrixSecond) {
 		MatrixClass result = new MatrixClass();
 		if (this.compare(matrixSecond) == 1) {
@@ -69,7 +69,7 @@ public class MatrixClass {
 			return null;
 		}
 	}
-	//Разность матриц. Возможно когда размеры матриц равны
+	//Р Р°Р·РЅРѕСЃС‚СЊ РјР°С‚СЂРёС†. Р’РѕР·РјРѕР¶РЅРѕ РєРѕРіРґР° СЂР°Р·РјРµСЂС‹ РјР°С‚СЂРёС† СЂР°РІРЅС‹
 	public MatrixClass diffMatrix(MatrixClass matrixSecond) {
 		MatrixClass result = new MatrixClass();
 		if (this.compare(matrixSecond) == 1) {
@@ -84,7 +84,7 @@ public class MatrixClass {
 		}
 	}
 
-	// Умножение матрицы на число. Возвращаем объект
+	// РЈРјРЅРѕР¶РµРЅРёРµ РјР°С‚СЂРёС†С‹ РЅР° С‡РёСЃР»Рѕ. Р’РѕР·РІСЂР°С‰Р°РµРј РѕР±СЉРµРєС‚
 	public MatrixClass matrixMultNumber(MatrixClass matrixSecond, int num) {
 		int n = matrixSecond.getVerticalSize();
 		int m = matrixSecond.getHorizontalSize();
