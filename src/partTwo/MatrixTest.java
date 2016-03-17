@@ -3,8 +3,8 @@ package partTwo;
 public class MatrixTest {
 
 	public static void main(String[] args) {
-		MatrixClass matrix1 = new MatrixClass();
-		MatrixClass matrix2 = new MatrixClass(3, 3);
+		MatrixClass matrix1 = new MatrixClass(); //Основная матрица без параметро 3x3
+		MatrixClass matrix2 = new MatrixClass(3, 3); //Дополнительная матрица размер передаем в скобках
 		MatrixClass summ;
 		MatrixClass diff; 
 		MatrixClass multNum;
