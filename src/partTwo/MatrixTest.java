@@ -8,8 +8,9 @@ public class MatrixTest {
 		MatrixClass summ;
 		MatrixClass diff;
 		MatrixClass multNum;
-		MatrixClass identutyMatrix1= MatrixClass.identityMatrix();
-		int matrixMultiplier = 6; // множитель матрицы (когда умножаем на число)
+		MatrixClass identutyMatrix1 = MatrixClass.identityMatrix();
+		int matrixMultiplier = 6; // множитель (для метода matrixMultNumber:
+									// когда матрицу умножаем на число)
 
 		System.out.println("Вертикальный размер умолчательной матрицы: " + matrix1.getVerticalSize());
 		System.out.println("Горизонтальный размер умолчательной матрицы: " + matrix1.getHorizontalSize());
@@ -18,7 +19,6 @@ public class MatrixTest {
 		System.out.println("Вертикальный размер вспомогательной матрицы: " + matrix2.getVerticalSize());
 		System.out.println("Горизонтальный размер вспомогательной матрицы: " + matrix2.getHorizontalSize());
 		MatrixClass.printMatrix(matrix2);
-
 
 		summ = matrix1.sumMatrix(matrix2);
 		diff = matrix1.diffMatrix(matrix2);
@@ -35,10 +35,15 @@ public class MatrixTest {
 		multNum = matrix1.matrixMultNumber(matrix1, matrixMultiplier);
 		System.out.println("Умножение матрицы на число: ");
 		MatrixClass.printMatrix(multNum);
-		System.out.println("\n ===== \n Определитель матрицы равен: " + MatrixClass.determinantMatrix(matrix1));
-		
+
+		System.out.println("Определитель матрицы равен: " + MatrixClass.determinantMatrix(matrix1));
+		System.out.println("==================");
+
 		System.out.println("Единичная матрица: ");
 		MatrixClass.printMatrix(identutyMatrix1);
-		
+
+		System.out.println("Инвертирование  матрицы:");
+		MatrixClass.invertMatrix(matrix1);
+
 	}
 }

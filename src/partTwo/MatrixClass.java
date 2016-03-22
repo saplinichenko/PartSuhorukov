@@ -21,7 +21,7 @@ public class MatrixClass {
 	}
 
 	// Реализация метода для заполнения массива случайными числами
-	// возвращаем массив: int [][].
+	// возвращаем объект с заполненным массивом: int [n][m].
 
 	public int[][] fillingMatrix(int n, int m) {
 		int[][] tmpMatrix = new int[n][m];
@@ -35,7 +35,6 @@ public class MatrixClass {
 
 	// Метод вывода на экран содержимого матрицы
 	public static void printMatrix(MatrixClass tmpMatrix) {
-		System.out.println("==================");
 		for (int i = 0; i < tmpMatrix.matrixArr.length; i++) {
 			for (int j = 0; j < tmpMatrix.matrixArr[0].length; j++) {
 
@@ -43,6 +42,7 @@ public class MatrixClass {
 			}
 			System.out.println(" ");
 		}
+		System.out.println("=================");
 	}
 
 	// сравнение двух матриц. На вход метода отправляем объект.
@@ -99,13 +99,12 @@ public class MatrixClass {
 		return result;
 	}
 
-	// Определитель матрицы
-	// Используем метод разложения по строке или столбцу
+	// Определитель матрицы. Используем метод разложения по строке или столбцу
 	// Так как в условии задачи дефолтная матрица 3х3, то допольнительные
 	// условия проверки не стал вставлять
 
 	public static int determinantMatrix(MatrixClass otherMtx) {
-		int determinant = 9999999; // на всякий случай, для проверки
+		int determinant = 0;
 		int tmpDet1 = 0;
 		int tmpDet2 = 0;
 		int tmpDet3 = 0;
@@ -119,11 +118,11 @@ public class MatrixClass {
 				if (i == 0 && j == 0) {
 					tmpDet1 = (int) Math.pow(-1.0, 2.0) * (tmpArr[1][1] * tmpArr[2][2] - tmpArr[2][1] * tmpArr[1][2]);
 				}
-				if (i == 1 && j == 0) {
-					tmpDet2 = (int) Math.pow(-1.0, 3.0) * (tmpArr[0][1] * tmpArr[2][2] - tmpArr[2][1] * tmpArr[2][1]);
+				if (i == 0 && j == 1) {
+					tmpDet2 = (int) Math.pow(-1.0, 3.0) * (tmpArr[1][0] * tmpArr[2][2] - tmpArr[1][2] * tmpArr[2][0]);
 				}
-				if (i == 2 && j == 0) {
-					tmpDet3 = (int) Math.pow(-1.0, 4.0) * (tmpArr[0][1] * tmpArr[1][2] - tmpArr[1][1] * tmpArr[0][2]);
+				if (i == 0 && j == 2) {
+					tmpDet3 = (int) Math.pow(-1.0, 4.0) * (tmpArr[1][0] * tmpArr[2][1] - tmpArr[1][1] * tmpArr[2][0]);
 				}
 
 			}
@@ -134,34 +133,110 @@ public class MatrixClass {
 
 	}
 
-	// метод инвертирования квадратной матрицы второго порядка. Статический. Без
-	// параметров
-	public void invertMatrix() {
-		MatrixClass tmpMatrix = new MatrixClass(2, 2);
-		MatrixClass iMatrix = new MatrixClass(2, 2);
+	// Метод инвертирования квадратной матрицы (Обратная матрица). Статический.
+	// С входными параметрами
 
+	public static void invertMatrix(MatrixClass tmpMatrix) {
+
+		// Новый объект с новой матрицей. Она будет сразу заполнена хламом, но
+		// массив заполним новыми значениями позже.
+		MatrixClass iMatrix = new MatrixClass(3, 3);
+
+		// Проверяем определитель !=0
 		if (MatrixClass.determinantMatrix(tmpMatrix) != 0) {
-			iMatrix.matrixArr[0][0] = tmpMatrix.matrixArr[1][1];
-			iMatrix.matrixArr[1][1] = tmpMatrix.matrixArr[0][0];
-			iMatrix.matrixArr[1][0] = tmpMatrix.matrixArr[0][1];
-			iMatrix.matrixArr[0][1] = tmpMatrix.matrixArr[1][0];
 
-		} else {
+			// сначала находим матрицу алгебраических дополнений
+			int[][] cofactorMatrix = new int[3][3];
+			for (int n = 0; n < cofactorMatrix.length; n++) {
+				for (int m = 0; m < cofactorMatrix[0].length; m++) {
+					for (int i = 0; i < tmpMatrix.matrixArr.length; i++) {
+						for (int j = 0; j < tmpMatrix.matrixArr[0].length; j++) {
+							if (i == 0 && j == 0) {
+								cofactorMatrix[n][m] = (int) Math.pow(-1.0, 2.0 + i + j)
+										* (tmpMatrix.matrixArr[1][1] * tmpMatrix.matrixArr[2][2]
+												- tmpMatrix.matrixArr[2][1] * tmpMatrix.matrixArr[1][2]);
+							}
+							if (i == 0 && j == 1) {
+								cofactorMatrix[n][m] = (int) Math.pow(-1.0, 2.0 + i + j)
+										* (tmpMatrix.matrixArr[1][0] * tmpMatrix.matrixArr[2][2]
+												- tmpMatrix.matrixArr[1][2] * tmpMatrix.matrixArr[2][0]);
+							}
+							if (i == 0 && j == 2) {
+								cofactorMatrix[n][m] = (int) Math.pow(-1.0, 2.0 + i + j)
+										* (tmpMatrix.matrixArr[1][0] * tmpMatrix.matrixArr[2][1]
+												- tmpMatrix.matrixArr[1][1] * tmpMatrix.matrixArr[2][0]);
+							}
+							if (i == 1 && j == 0) {
+								cofactorMatrix[n][m] = (int) Math.pow(-1.0, 2.0 + i + j)
+										* (tmpMatrix.matrixArr[0][1] * tmpMatrix.matrixArr[2][2]
+												- tmpMatrix.matrixArr[2][1] * tmpMatrix.matrixArr[0][2]);
+							}
+							if (i == 1 && j == 1) {
+								cofactorMatrix[n][m] = (int) Math.pow(-1.0, 2.0 + i + j)
+										* (tmpMatrix.matrixArr[0][0] * tmpMatrix.matrixArr[2][2]
+												- tmpMatrix.matrixArr[2][0] * tmpMatrix.matrixArr[0][2]);
+							}
+							if (i == 1 && j == 2) {
+								cofactorMatrix[n][m] = (int) Math.pow(-1.0, 2.0 + i + j)
+										* (tmpMatrix.matrixArr[0][0] * tmpMatrix.matrixArr[2][1]
+												- tmpMatrix.matrixArr[2][0] * tmpMatrix.matrixArr[0][1]);
+							}
+							if (i == 2 && j == 0) {
+								cofactorMatrix[n][m] = (int) Math.pow(-1.0, 2.0 + i + j)
+										* (tmpMatrix.matrixArr[0][0] * tmpMatrix.matrixArr[1][1]
+												- tmpMatrix.matrixArr[1][0] * tmpMatrix.matrixArr[0][1]);
+							}
+							if (i == 2 && j == 1) {
+								cofactorMatrix[n][m] = (int) Math.pow(-1.0, 2.0 + i + j)
+										* (tmpMatrix.matrixArr[0][0] * tmpMatrix.matrixArr[1][2]
+												- tmpMatrix.matrixArr[1][0] * tmpMatrix.matrixArr[0][2]);
+							}
+							if (i == 2 && j == 2) {
+								cofactorMatrix[n][m] = (int) Math.pow(-1.0, 2.0 + i + j)
+										* (tmpMatrix.matrixArr[0][0] * tmpMatrix.matrixArr[1][1]
+												- tmpMatrix.matrixArr[1][0] * tmpMatrix.matrixArr[0][1]);
+							}
 
-			System.out.println("Инвертирование невозможно. Определитель матрицы равено 0");
+						}
+					}
+				}
+			}
+
+			// Выполняем транспонироване матрицы
+			// Вот тут мы и заменяем массив объекта корректными значениями.
+			for (int i = 0; i < tmpMatrix.matrixArr.length; i++) {
+				for (int j = 0; j < tmpMatrix.matrixArr[0].length; j++) {
+					iMatrix.matrixArr[i][j] = tmpMatrix.matrixArr[j][i];
+				}
+
+			}
+			// Выводим на экран множитель (1/det) и транспонированную матрицу алгебраических дополнений
+			System.out.println("Инвертированную матрицу запишем как: 1/" + MatrixClass.determinantMatrix(tmpMatrix)
+					+ " умножить на: ");
+			MatrixClass.printMatrix(iMatrix);
 		}
+
+	}
+
+	// Метод инвертирования матрицы (Обратная матрица). Без входных параметров.
+	public static void invertMatrix() {
+		MatrixClass tmpMatrix = new MatrixClass(3, 3); // Новый объект с новой
+														// заполненной матрицей.
+
+		invertMatrix(tmpMatrix); // Вызываем готовый объект и передаем на вход
+									// готового метода объект с новой матрицей
 
 	}
 
 	// метод возврата единичной матрицы третьего порядка
 	// через статичное поле и метод
-	public static MatrixClass identityMatrix( ) {
-		MatrixClass identMatrix = new MatrixClass(3,3);
+	public static MatrixClass identityMatrix() {
+		MatrixClass identMatrix = new MatrixClass(3, 3);
 		for (int i = 0; i < identMatrix.matrixArr.length; i++) {
 			for (int j = 0; j < identMatrix.matrixArr.length; j++) {
 				if (i == j) {
 					identMatrix.matrixArr[i][j] = 1;
-				}else {
+				} else {
 					identMatrix.matrixArr[i][j] = 0;
 				}
 
