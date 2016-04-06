@@ -3,8 +3,8 @@ package autoKPP;
 import autoKPP.AutoKPPTest.SpecTransport;
 
 public class Checkpoint {
-	int fareAll; //общая стоимость
-	String fareName; //Наименование марки автомобиля
+	int fareAll; // общая стоимость
+	String fareName; // Наименование марки автомобиля
 	int farePassenger = 1000; // пошлина на проезд легковой авто
 	int fareFreight = 2000; // пошлина на проезд грузовой авто
 	int priceTrailer = 500;// размер пошлины за прицеп
@@ -15,7 +15,7 @@ public class Checkpoint {
 	double capacity; // грузоподемность
 	double height; // высота
 	SpecTransport isSpec2; // является ли авто спец.транспортом
-	Object tmpCar; //временный объект
+	Object tmpCar; // временный объект
 
 	Checkpoint(FreightCar fCar) {
 		tmpCar = (FreightCar) tmpCar;
@@ -107,11 +107,11 @@ public class Checkpoint {
 				fareAll = fareFreight + priceFine + priceTrailer + 0;
 				printInfo(fareAll, fareFreight, priceFine, priceTrailer, 0);
 
-			} else if (height <= 4 && this.hasTrailer == false && this.capacity > 10.0) {
+			} else if (height <= 4 && !this.hasTrailer && this.capacity > 10.0) {
 				fareAll = fareFreight + priceFine + 0 + priceCapacity;
 				printInfo(fareAll, fareFreight, priceFine, 0, priceCapacity);
 
-			} else if (height <= 4 && this.hasTrailer == false && this.capacity < 10.0) {
+			} else if (height <= 4 && !this.hasTrailer && this.capacity < 10.0) {
 				fareAll = fareFreight + priceFine + 0 + 0;
 				printInfo(fareAll, fareFreight, priceFine, 0, 0);
 

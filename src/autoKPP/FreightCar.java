@@ -1,12 +1,24 @@
 package autoKPP;
 
-import autoKPP.AutoKPPTest.SpecTransport;
+import static autoKPP.AutoKPPTest.SpecTransport;
 
 //Класс описания грузовых автомобилей
-public class FreightCar {
-	double capacity; // грузоподъемность
+public abstract class FreightCar extends Auto {
 	double height;// высота
-	double speed; // скорость
 	boolean hasTrailer = false; // наличие прицепа
-	SpecTransport isSpec; // является ли спец.транспортом
+
+	FreightCar(double capacity, double height, double speed, boolean hasTrailer, SpecTransport specTr) {
+		super.capacity = capacity;
+		super.speed = speed;
+		super.isSpec = specTr;
+		this.height = height;
+		this.hasTrailer = hasTrailer;
+	}
+
+	FreightCar(double capacity, double height, double speed, boolean hasTrailer) {
+		super.capacity = capacity;
+		super.speed = speed;
+		this.height = height;
+		this.hasTrailer = hasTrailer;
+	}
 }

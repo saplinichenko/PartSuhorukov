@@ -3,9 +3,18 @@ package autoKPP;
 import autoKPP.AutoKPPTest.SpecTransport;
 
 //Класс описания легковых автомобилей
-public class PassengerCar {
-	double capacity; // грузоподъемность
-	double speed;// скорость
-	SpecTransport isSpec; // является ли спец.транспортом
+public abstract class PassengerCar extends Auto {
+
+	PassengerCar(double capacity, double speed, SpecTransport specTr) {
+		super.capacity = capacity;
+		super.speed = speed;
+		super.isSpec = specTr;
+	}
+
+	PassengerCar(double capacity, double speed) {
+		super.capacity = capacity;
+		super.speed = speed;
+
+	}
 
 }
