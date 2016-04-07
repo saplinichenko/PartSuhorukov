@@ -8,7 +8,7 @@ public class AudiA4 extends PassengerCar {
 	AudiA4(double capacity, double speed, SpecTransport specTr) {
 		super(capacity, speed, specTr);
 	}
-
+ 
 	AudiA4(double capacity, double speed) {
 		super(capacity, speed);
 

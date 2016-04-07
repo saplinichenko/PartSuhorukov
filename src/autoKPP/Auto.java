@@ -8,3 +8,4 @@ public abstract class Auto {
 	SpecTransport isSpec; // является ли спец.транспортом
 	
 }
+ 

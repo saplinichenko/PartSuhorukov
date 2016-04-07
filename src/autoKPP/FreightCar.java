@@ -1,5 +1,5 @@
 package autoKPP;
-
+ 
 import static autoKPP.AutoKPPTest.SpecTransport;
 
 //Класс описания грузовых автомобилей

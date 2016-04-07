@@ -1,5 +1,5 @@
 package autoKPP;
-
+ 
 import autoKPP.AutoKPPTest.SpecTransport;
 
 public class Howo extends FreightCar {

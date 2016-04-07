@@ -1,5 +1,5 @@
 package autoKPP;
-
+ 
 public class AutoKPPTest {
 
 	public enum SpecTransport {
