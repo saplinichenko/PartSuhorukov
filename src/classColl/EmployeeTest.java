@@ -58,7 +58,7 @@ public class EmployeeTest {
 		// имя типа коллекции
 		String nameCollection = employees.getClass().getName().substring(10);
 
-		// Время начала работы метода
+		// Время начала работы метода 
 		long timeStart = System.nanoTime();
 		String[] f = { "Иванов", "Петров", "Сидоров", "Маслов" };
 		String[] i = { "Сергей", "Иван", "Дмитрий", "Пётр" };

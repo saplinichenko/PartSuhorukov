@@ -1,6 +1,6 @@
 package classColl;
  
-public class Employee {
+public class Employee { 
 	String name;
 	int workAge;
  

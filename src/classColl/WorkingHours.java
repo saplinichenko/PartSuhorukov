@@ -1,6 +1,6 @@
 package classColl;
 
-public class WorkingHours {
+public class WorkingHours {  
 	long timeStart;
 	long timeEnd;
 	long triceTimeIn;
