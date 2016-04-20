@@ -15,16 +15,16 @@ public class EmployeeTest {
 		WorkingHours queueTime = new WorkingHours(0, 0);
 
 		fillEmployee(arrEmployee, 100, arrTime); // Заполняем список 100
-		fillEmployee(setEmployee, 100, setTime); // Заполняем Множество 
-		fillEmployee(queueEmployee, 100, queueTime);// Заполняем очередь 
+		fillEmployee(setEmployee, 100, setTime); // Заполняем Множество
+		fillEmployee(queueEmployee, 100, queueTime);// Заполняем очередь
 
-		printEmployee(arrEmployee, 5, arrTime); // Выводим список 
+		printEmployee(arrEmployee, 5, arrTime); // Выводим список
 		System.err.println("-----------------------------");
-		printEmployee(setEmployee, 2, setTime); // Выводим множество 
+		printEmployee(setEmployee, 2, setTime); // Выводим множество
 		System.err.println("-----------------------------");
 		printEmployee(queueEmployee, 0, queueTime); // Выводим очередь
 
-		//Вывод времени работы методов
+		// Вывод времени работы методов
 		timeEmployee(arrTime);
 		timeEmployee(setTime);
 		timeEmployee(queueTime);
@@ -58,7 +58,7 @@ public class EmployeeTest {
 		// имя типа коллекции
 		String nameCollection = employees.getClass().getName().substring(10);
 
-		// Время начала работы метода 
+		// Время начала работы метода
 		long timeStart = System.nanoTime();
 		String[] f = { "Иванов", "Петров", "Сидоров", "Маслов" };
 		String[] i = { "Сергей", "Иван", "Дмитрий", "Пётр" };
@@ -82,9 +82,9 @@ public class EmployeeTest {
 
 	// Раситываем время работы ввода и вывода
 	public static void timeEmployee(WorkingHours tmp) {
-		System.out.println("=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+");
-		System.out.println(tmp.nameCollection + ".\nВремя заполнения (наносек): " + tmp.triceTimeIn
-				+ ". Время вывода (наносек): " + tmp.triceTimeOut);
+		System.out.println("===================================");
+		System.out.println(tmp.nameCollection + ":\nВремя заполнения (наносек): " + tmp.triceTimeIn
+				+ " Время вывода (наносек): " + tmp.triceTimeOut);
 
 	}
 }
