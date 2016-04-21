@@ -1,9 +1,11 @@
 package partTwo;
 
+//import java.lang.reflect.*;
+
 public class MatrixTest {
 
-	public static void main(String[] args) {
-		MatrixClass matrix1 = new MatrixClass();
+	public static void main(String[] args) throws Exception {
+/*		MatrixClass matrix1 = new MatrixClass();
 		MatrixClass matrix2 = new MatrixClass(3, 3);
 		MatrixClass summ;
 		MatrixClass diff;
@@ -11,6 +13,9 @@ public class MatrixTest {
 		MatrixClass identutyMatrix1 = MatrixClass.identityMatrix();
 		int matrixMultiplier = 6; // множитель (для метода matrixMultNumber:
 									// когда матрицу умножаем на число)
+
+		// Class klazz = matrix1.getClass();
+		// System.out.println(klazz.getPackage());
 
 		System.out.println("Вертикальный размер умолчательной матрицы: " + matrix1.getVerticalSize());
 		System.out.println("Горизонтальный размер умолчательной матрицы: " + matrix1.getHorizontalSize());
@@ -44,6 +49,10 @@ public class MatrixTest {
 
 		System.out.println("Инвертирование  матрицы:");
 		MatrixClass.invertMatrix(matrix1);
-
+*/
+		// -------------------------------------
+		System.out.println("\n\nНИЖЕ РЕЗУЛЬТАТЫ РАБОТЫ ПО РЕФЛЕКСИИ!!!\n\n");
+		
+		ReflectMatrix.reff(MatrixClass.class);
 	}
 }

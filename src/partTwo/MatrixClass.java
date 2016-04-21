@@ -1,20 +1,20 @@
 package partTwo;
- 
+
 import java.util.Random;
 
 public class MatrixClass {
 	int n = 0;
 	int m = 0;
 	final Random random = new Random();
-	private int[][] matrixArr;
+	int[][] matrixArr;
 
-	MatrixClass() {
+	public	MatrixClass() {
 		n = 3;
 		m = 3;
 		matrixArr = fillingMatrix(n, m);
 	}
 
-	MatrixClass(int n, int m) {
+	public MatrixClass(int n, int m) {
 		this.n = n;
 		this.m = m;
 		matrixArr = fillingMatrix(n, m);
@@ -34,7 +34,7 @@ public class MatrixClass {
 	}
 
 	// Метод вывода на экран содержимого матрицы
-	public static void printMatrix(MatrixClass tmpMatrix) {
+	private static void printMatrix(MatrixClass tmpMatrix) {
 		for (int i = 0; i < tmpMatrix.matrixArr.length; i++) {
 			for (int j = 0; j < tmpMatrix.matrixArr[0].length; j++) {
 
@@ -210,7 +210,8 @@ public class MatrixClass {
 				}
 
 			}
-			// Выводим на экран множитель (1/det) и транспонированную матрицу алгебраических дополнений
+			// Выводим на экран множитель (1/det) и транспонированную матрицу
+			// алгебраических дополнений
 			System.out.println("Инвертированную матрицу запишем как: 1/" + MatrixClass.determinantMatrix(tmpMatrix)
 					+ " умножить на: ");
 			MatrixClass.printMatrix(iMatrix);
